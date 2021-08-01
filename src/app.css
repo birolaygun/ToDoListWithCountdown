@@ -1,0 +1,126 @@
+
+
+.bore{
+background-color: rgba(3, 3, 3, 0.486);
+  border-radius: 10px;
+  margin: 2px;
+}
+
+@media all and (min-width:490px){
+
+.durum{
+  display: flex;
+  justify-content: space-evenly;
+}
+.forum {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-left: calc(var(--bs-gutter-x) / -2);
+}
+.forum > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
+  margin-top: var(--bs-gutter-y);
+}
+.baaa {
+  flex: 0 0 auto;
+  width: 41.6666666667%;
+}
+.taaa {
+  flex: 0 0 auto;
+  width: 25%;
+}
+.saaa {
+  flex: 0 0 auto;
+  width: 16.6666666667%;}
+
+.buuu{
+  flex: 0 0 auto;
+  width: 16.6666666667%;}
+  .oko{
+    width: 25px;
+    height: 25px;
+  }
+  
+}
+
+ @media all and (max-width:489px){
+*{
+  font-size:10px;
+}
+.durum{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.baaa {
+margin: 3px;
+}
+.taaa {
+margin: 3px;
+
+}
+.saaa {
+margin: 3px;
+
+}
+
+.buuu{
+width: 25%;
+margin: auto;
+}
+.buuuu{
+  width: 100%;
+}
+  .oko{
+    width: 15px;
+    height: 15px;
+  }
+
+}
+
+
+@media all and (max-width:290px){
+*{
+  font-size:8px;
+}
+.tabb > :not(caption) > * > * {
+  padding: 0.1rem 0.1rem;
+}
+  .oko{
+    width: 10px;
+    height: 10px;
+  }
+  .durum{
+    margin-left: 20px;
+  }
+} 
+
+@media all and (max-width:200px){
+*{
+  font-size:8px;
+}
+.tabb > :not(caption) > * > * {
+  padding: 0.1rem 0.1rem;
+}
+  .oko{
+    width: 10px;
+    height: 10px;
+  }
+  .durum{
+    display: flex; 
+    flex-direction: column;
+    
+
+  }
+  .baslık2, .baslık3{
+  text-align: center;
+}
+} 
