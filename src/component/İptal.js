@@ -1,13 +1,12 @@
-import './bootstrap.css';
-import './app.css';
 import React, {  useContext } from 'react';
-import { contex1 } from "../context/contex1"
+import { myContext } from "../context/myContext"
 
 export default function İptal() {
-    const { iptal } = useContext(contex1)
-    let value = iptal.length
+    const { canceled } = useContext(myContext)
+    let value = canceled.length
 
     return (
+
         <div className="m-1 align-self-center">
 
             <div className="btn-group dropdown">
@@ -16,7 +15,7 @@ export default function İptal() {
                 </button>
                 <ul className="dropdown-menu dropdown-menu-dark" >
 
-                    {iptal.map((item) =>
+                    {canceled.map((item) =>
                         <li className="px-2" key={Math.random()}>
                             {item.Başlık}
                         </li>
@@ -24,8 +23,6 @@ export default function İptal() {
 
                 </ul>
             </div>
-
-
         </div>
     )
 }

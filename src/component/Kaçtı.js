@@ -1,11 +1,9 @@
-import './bootstrap.css';
-import './app.css';
 import React, {  useContext } from 'react';
-import { contex1 } from "../context/contex1"
+import { myContext } from "../context/myContext"
 
 export default function Kaçtı() {
-    const {  olumsuz } = useContext(contex1)
-    let value = olumsuz.length
+    const {  missed } = useContext(myContext)
+    let value = missed.length
 
     return (
         <div className="m-1 align-self-center">
@@ -16,16 +14,13 @@ export default function Kaçtı() {
                 </button>
                 <ul className="dropdown-menu dropdown-menu-dark" >
 
-                    {olumsuz.map((item) =>
+                    {missed.map((item) =>
                         <li className="px-2" key={Math.random()}>
                             {item.Başlık}
                         </li>
                     )}
-
                 </ul>
             </div>
-
-
         </div>
     )
 }

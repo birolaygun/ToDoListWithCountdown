@@ -1,6 +1,6 @@
 
 
-.bore{
+.countDown{
 background-color: rgba(3, 3, 3, 0.486);
   border-radius: 10px;
   margin: 2px;
@@ -29,22 +29,22 @@ background-color: rgba(3, 3, 3, 0.486);
   padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
-.baaa {
+.head {
   flex: 0 0 auto;
   width: 41.6666666667%;
 }
-.taaa {
+.time {
   flex: 0 0 auto;
   width: 25%;
 }
-.saaa {
+.hour {
   flex: 0 0 auto;
   width: 16.6666666667%;}
 
-.buuu{
+.buttn{
   flex: 0 0 auto;
   width: 16.6666666667%;}
-  .oko{
+  .icon{
     width: 25px;
     height: 25px;
   }
@@ -60,26 +60,26 @@ background-color: rgba(3, 3, 3, 0.486);
   justify-content: space-evenly;
 }
 
-.baaa {
+.head {
 margin: 3px;
 }
-.taaa {
-margin: 3px;
-
-}
-.saaa {
+.time {
 margin: 3px;
 
 }
+.hour {
+margin: 3px;
 
-.buuu{
+}
+
+.buttn{
 width: 25%;
 margin: auto;
 }
-.buuuu{
+.addButton{
   width: 100%;
 }
-  .oko{
+  .icon{
     width: 15px;
     height: 15px;
   }
@@ -94,7 +94,7 @@ margin: auto;
 .tabb > :not(caption) > * > * {
   padding: 0.1rem 0.1rem;
 }
-  .oko{
+  .icon{
     width: 10px;
     height: 10px;
   }
@@ -110,7 +110,7 @@ margin: auto;
 .tabb > :not(caption) > * > * {
   padding: 0.1rem 0.1rem;
 }
-  .oko{
+  .icon{
     width: 10px;
     height: 10px;
   }
@@ -120,7 +120,7 @@ margin: auto;
     
 
   }
-  .baslık2, .baslık3{
+  .header, .headerScn{
   text-align: center;
 }
 } 
