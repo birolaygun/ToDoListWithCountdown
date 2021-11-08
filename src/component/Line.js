@@ -1,23 +1,36 @@
 import React, { useState, useContext } from 'react';
 import { myContext } from "../context/myContext"
 
-export default function Başlık({ baslıkHeader, timeAdd, headKey }) {
-    const { liste, setList, canceled, setCanceled, missed, done, setMissed, setDone } = useContext(myContext)
-    const [gün, setGün] = useState()
-    const [saat, setSaat] = useState()
-    const [dakika, setDakika] = useState()
-    const [saniye, setSaniye] = useState()
+export default function Line({ lineHeader, addTime, headKey }) {
+    const { toDoList, setToDoList, canceled, setCanceled, missed, done, setMissed, setDone } = useContext(myContext)
+    const [day, setDay] = useState()
+    const [hour, setHour] = useState()
+    const [minute, setMinute] = useState()
+    const [second, setSecond] = useState()
 
     setInterval(() => {
-        let kalan = timeAdd - new Date().getTime()
+        let remained = addTime - new Date().getTime();
 
-        setGün(Math.floor(kalan / (1000 * 60 * 60 * 24)))
-        setSaat(Math.floor((kalan % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
-        setDakika(Math.floor(((kalan % (1000 * 60 * 60 * 24)) % (1000 * 60 * 60)) / (1000 * 60)))
-        setSaniye(Math.floor((((kalan % (1000 * 60 * 60 * 24)) % (1000 * 60 * 60)) % (1000 * 60)) / 1000))
+        setDay(Math.floor(remained / (1000 * 60 * 60 * 24)));
+        setHour(
+          Math.floor((remained % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        );
+        setMinute(
+          Math.floor(
+            ((remained % (1000 * 60 * 60 * 24)) % (1000 * 60 * 60)) /
+              (1000 * 60)
+          )
+        );
+        setSecond(
+          Math.floor(
+            (((remained % (1000 * 60 * 60 * 24)) % (1000 * 60 * 60)) %
+              (1000 * 60)) /
+              1000
+          )
+        );
     }, 1000);
 
-    if (timeAdd - new Date().getTime() > 0) {
+    if (addTime - new Date().getTime() > 0) {
 
         return (
 
@@ -27,16 +40,16 @@ export default function Başlık({ baslıkHeader, timeAdd, headKey }) {
                         <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" /></svg>
                     </th>
                     <td 
-                    className="py-4">  {baslıkHeader} 
+                    className="py-4">  {lineHeader} 
                     </td>
                     <td> </td>
                     <td> 
                         <div className={"d-flex  "}>
 
-                          <div className={"p-1   text-center countDown"}><div><b>  {gün}   </b></div><div>Gün</div></div>
-                          <div className={"p-1   text-center countDown"}><div><b>   {saat}  </b></div><div>Saat</div></div>
-                          <div className={"p-1   text-center countDown"}><div><b>   {dakika}    </b></div><div>Dk</div></div>
-                          <div className={"p-1   text-center countDown"}><div><b>   {saniye}   </b></div><div>Sn</div></div>
+                          <div className={"p-1 text-center countDown"}><div><b>  {day}   </b></div><div>Gün</div></div>
+                          <div className={"p-1 text-center countDown"}><div><b>   {hour}  </b></div><div>Saat</div></div>
+                          <div className={"p-1 text-center countDown"}><div><b>   {minute}    </b></div><div>Dk</div></div>
+                          <div className={"p-1 text-center countDown"}><div><b>   {second}   </b></div><div>Sn</div></div>
 
                         </div>                    
 
@@ -45,18 +58,18 @@ export default function Başlık({ baslıkHeader, timeAdd, headKey }) {
 
                         <div className="d-flex  justify-content-evenly " >
                             <div className="m-3" style={{ cursor: 'pointer' }} onClick={() => {
-                                setDone([...done, { Başlık: baslıkHeader }])
-                                setList(liste.filter((ittem) => {
-                                    return ittem.key !== headKey
+                                setDone([...done, { Line: lineHeader }])
+                                setToDoList(toDoList.filter((item) => {
+                                    return item.key !== headKey
                                 }))}}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="icon bi bi-check-circle-fill" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                                 </svg>
                             </div>
                             <div className="m-3" style={{ cursor: 'pointer' }} onClick={() => {
-                                setCanceled([...canceled, { Başlık: baslıkHeader }])
-                                setList(liste.filter((ittem) => {
-                                    return ittem.key !== headKey
+                                setCanceled([...canceled, { Line: lineHeader }])
+                                setToDoList(toDoList.filter((item) => {
+                                    return item.key !== headKey
                                 }))}}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="icon bi bi-x-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -70,9 +83,9 @@ export default function Başlık({ baslıkHeader, timeAdd, headKey }) {
         )} 
         else {
 
-        setMissed([...missed, { Başlık: baslıkHeader }])
-        setList(liste.filter((ittem) => {
-            return ittem.key !== headKey
+        setMissed([...missed, { Line: lineHeader }])
+        setToDoList(toDoList.filter((item) => {
+            return item.key !== headKey
         }))
     }
 
